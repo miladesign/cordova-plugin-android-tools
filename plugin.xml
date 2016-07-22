@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-android-tools"
+    version="1.0">
+
+	<name>Cordova Android Tools plugin</name>
+    <description>Cordova Android Tools plugin</description>
+    <author>Milad Mohammadi Rezagah</author>		
+    <license>MIT</license>
+    <keywords>cordova,plugin,android,tools</keywords>
+    <repo>https://github.com/miladesign/cordova-plugin-android-tools</repo>
+    <issue>https://github.com/miladesign/cordova-plugin-android-tools/issues</issue>
+	<engines>
+	    <engine name="cordova" version=">=3.0.0" />
+	</engines>
+	
+    <js-module src="www/miladesign.js" name="miladesign">
+        <clobbers target="window.miladesign" />
+    </js-module>
+    
+    <!-- android -->
+    <platform name="android">    
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="AndroidTools" >
+				<param name="android-package" value="cordova.tools.miladesign.AndroidTools"/>
+			</feature>
+	    </config-file>	
+		
+	    <source-file src="src/android/AndroidTools.java" target-dir="src/cordova/tools/miladesign"/>
+    </platform>
+	
+</plugin>
