@@ -1,5 +1,6 @@
 var exec = require('cordova/exec');
 module.exports = {
+	
 	// Show ProgressDialog
 	ShowProgressDialog: function(title,message) {
 		cordova.exec(
@@ -45,13 +46,85 @@ module.exports = {
 	},
 	
 	// Show Toast
-	ShowToast: function(message) {
+	ShowToast: function(message,duration) {
 		cordova.exec(
 			null, 
 			null,
 			'AndroidTools',
 			'showToast',			
-			[message]
+			[message,duration]
+		); 
+	},
+	
+	// Show Custom Toast
+	CustomToast: function(message,duration,type) {
+		cordova.exec(
+			null, 
+			null,
+			'AndroidTools',
+			'customToast',			
+			[message,duration,type]
+		); 
+	},
+	
+	// Vibrate Device
+	VibrateDevice: function(duration) {
+		cordova.exec(
+			null, 
+			null,
+			'AndroidTools',
+			'vibrateDevice',			
+			[duration]
+		); 
+	},
+	
+	// Vibrate Supported
+	VibrateSupported: function() {
+		var self = this;
+		cordova.exec(
+			function (result) {
+                if (typeof result == "string") {
+                    if (result == "onVibrateSupported") {
+                        if (self.onVibrateSupported) {
+                            self.onVibrateSupported();
+                        }
+                    }
+                    if (result == "onVibrateNotSupported") {
+                        if (self.onVibrateNotSupported) {
+                            self.onVibrateNotSupported();
+                        }
+                    }
+                }
+            }, 
+			null,
+			'AndroidTools',
+			'vibrate_supported',			
+			[]
+		); 
+	},
+	
+	// Check Bazaar
+	CheckBazaar: function() {
+		var self = this;
+		cordova.exec(
+			function (result) {
+                if (typeof result == "string") {
+                    if (result == "onBazaarTrue") {
+                        if (self.onBazaarTrue) {
+                            self.onBazaarTrue();
+                        }
+                    }
+                    if (result == "onBazaarFalse") {
+                        if (self.onBazaarFalse) {
+                            self.onBazaarFalse();
+                        }
+                    }
+                }
+            },
+			null,
+			'AndroidTools',
+			'checkBazaar',			
+			[]
 		); 
 	},
 	
@@ -289,5 +362,9 @@ module.exports = {
 			'shareApp',			
 			[title,packageName]
 		); 
-	}
+	},
+	onVibrateSupported: null,
+	onVibrateNotSupported: null,
+	onBazaarTrue: null,
+	onBazaarFalse: null
 };

@@ -2,7 +2,7 @@
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordova-plugin-android-tools"
-    version="1.2">
+    version="1.4">
 
 	<name>Cordova Android Tools plugin</name>
     <description>Cordova Android Tools plugin</description>
@@ -25,9 +25,26 @@
 			<feature name="AndroidTools" >
 				<param name="android-package" value="cordova.tools.miladesign.AndroidTools"/>
 			</feature>
-	    </config-file>	
+	    </config-file>
+		<config-file target="AndroidManifest.xml" parent="/*">
+			<uses-permission android:name="android.permission.VIBRATE" />
+		</config-file>
 		
 	    <source-file src="src/android/AndroidTools.jar" target-dir="libs"/>
+	    <source-file src="src/android/rebound-0.3.8.jar" target-dir="libs"/>
+		
+		<source-file src="res/drawable/background_toast.xml" target-dir="res/drawable"/>
+		<source-file src="res/drawable/default_toast.xml" target-dir="res/drawable"/>
+		<source-file src="res/drawable/error_toast.xml" target-dir="res/drawable"/>
+		<source-file src="res/drawable/info_toast.xml" target-dir="res/drawable"/>
+		<source-file src="res/drawable/success_toast.xml" target-dir="res/drawable"/>
+		<source-file src="res/drawable/warning_toast.xml" target-dir="res/drawable"/>
+		
+		<source-file src="res/layout/default_toast_layout.xml" target-dir="res/layout"/>
+		<source-file src="res/layout/error_toast_layout.xml" target-dir="res/layout"/>
+		<source-file src="res/layout/info_toast_layout.xml" target-dir="res/layout"/>
+		<source-file src="res/layout/success_toast_layout.xml" target-dir="res/layout"/>
+		<source-file src="res/layout/warning_toast_layout.xml" target-dir="res/layout"/>
     </platform>
 	
 </plugin>
