@@ -320,6 +320,17 @@ module.exports = {
 		); 
 	},
 	
+	// Open Url
+	OpenUrl: function(url) {
+		cordova.exec(
+			null,
+			null,
+			'AndroidTools',
+			'openUrl',			
+			[url]
+		); 
+	},
+	
 	// Telegram Profile
 	TelegramProfile: function(UserName) {
 		cordova.exec(
@@ -361,6 +372,17 @@ module.exports = {
 			'AndroidTools',
 			'shareApp',			
 			[title,packageName]
+		); 
+	},
+	
+	// Opem App
+	OpenApp: function(packageName) {
+		cordova.exec(
+			null,
+			null,
+			'AndroidTools',
+			'openApp',			
+			[packageName]
 		); 
 	},
 	onVibrateSupported: null,
