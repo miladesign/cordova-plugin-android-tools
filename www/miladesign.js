@@ -375,7 +375,7 @@ module.exports = {
 		); 
 	},
 	
-	// Opem App
+	// Open App
 	OpenApp: function(packageName) {
 		cordova.exec(
 			null,
