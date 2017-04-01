@@ -103,31 +103,6 @@ module.exports = {
 		); 
 	},
 	
-	// Check Bazaar
-	CheckBazaar: function() {
-		var self = this;
-		cordova.exec(
-			function (result) {
-                if (typeof result == "string") {
-                    if (result == "onBazaarTrue") {
-                        if (self.onBazaarTrue) {
-                            self.onBazaarTrue();
-                        }
-                    }
-                    if (result == "onBazaarFalse") {
-                        if (self.onBazaarFalse) {
-                            self.onBazaarFalse();
-                        }
-                    }
-                }
-            },
-			null,
-			'AndroidTools',
-			'checkBazaar',			
-			[]
-		); 
-	},
-	
 	// Get Device Unique ID
 	GetDeviceID: function(success, fail) {
         cordova.exec(success, fail, 'AndroidTools', 'getDeviceId', []);
@@ -385,8 +360,76 @@ module.exports = {
 			[packageName]
 		); 
 	},
+	
+	// SetScreenBrightness
+	SetScreenBrightness: function(Value) {
+		cordova.exec(
+			null,
+			null,
+			'AndroidTools',
+			'setBrightness',			
+			[Value]
+		); 
+	},
+	
+	// SetScreenOrientation
+	SetScreenOrientation: function(Orientation) {
+		cordova.exec(
+			null,
+			null,
+			'AndroidTools',
+			'setOrientation',			
+			[Orientation]
+		); 
+	},
+	
+	// OpenWhatsapp
+	OpenWhatsapp: function(number) {
+		cordova.exec(
+			null,
+			null,
+			'AndroidTools',
+			'openWhatsapp',			
+			[number]
+		); 
+	},
+	
+	// SetVolume
+	SetVolume: function(channel,value,showUI) {
+		cordova.exec(null, null, 'AndroidTools', 'setVolume', [channel,value,showUI]); 
+	},
+	
+	// Get Max Volume
+	GetMaxVolume: function(success, channel) {
+        cordova.exec(success, null, 'AndroidTools', 'getMaxVolume', [channel]);
+    },
+	
+	// Set Ringer Mode
+	SetRingerMode: function(mode) {
+		cordova.exec(null, null, 'AndroidTools', 'setRingerMode', [mode]); 
+	},
+	
+	// 3 Button Dialog
+	ThreeDialog: function(title,message,btn1,btn2,btn3,success) {
+		cordova.exec(
+			success, 
+			null,
+			'AndroidTools',
+			'threeDialog',			
+			[title,message,btn1,btn2,btn3]
+		); 
+	},
+	
+	// Input Dialog
+	InputDialog: function(title,message,btnOK,btnCancel,hint,type,format,success,error) {
+		cordova.exec(
+			success, 
+			error,
+			'AndroidTools',
+			'inputDialog',			
+			[title,message,btnOK,btnCancel,hint,type,format]
+		); 
+	},
 	onVibrateSupported: null,
-	onVibrateNotSupported: null,
-	onBazaarTrue: null,
-	onBazaarFalse: null
+	onVibrateNotSupported: null
 };

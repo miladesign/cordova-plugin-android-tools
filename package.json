@@ -1,6 +1,6 @@
 {
-  "name": "cordova-plugin-android-tools",
-  "version": "1.4",
+  "name": "Android Tools",
+  "version": "1.6",
   "description": "Cordova Android Tools Plugin",
   "cordova": {
     "id": "cordova-plugin-android-tools",
@@ -16,9 +16,8 @@
     "cordova",
     "plugin",
     "android",
-    "tools",
-    "ecosystem:cordova",
-    "cordova-android"
+    "android-tools",
+    "tools"
   ],
   "engines": [
     {
@@ -26,7 +25,7 @@
       "version": ">=3.0.0"
     }
   ],
-  "author": "Milad Mohammadi",
+  "author": "Milad Mohammadi Rezagah",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/miladesign/cordova-plugin-android-tools/issues"

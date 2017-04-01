@@ -2,13 +2,13 @@
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordova-plugin-android-tools"
-    version="1.4">
+    version="1.6">
 
-	<name>Cordova Android Tools plugin</name>
+	<name>Android Tools</name>
     <description>Cordova Android Tools plugin</description>
     <author>Milad Mohammadi Rezagah</author>		
     <license>MIT</license>
-    <keywords>cordova,plugin,android,tools</keywords>
+    <keywords>cordova,plugin,android,tools,android-tools</keywords>
     <repo>https://github.com/miladesign/cordova-plugin-android-tools</repo>
     <issue>https://github.com/miladesign/cordova-plugin-android-tools/issues</issue>
 	<engines>
@@ -30,8 +30,15 @@
 			<uses-permission android:name="android.permission.VIBRATE" />
 		</config-file>
 		
-	    <source-file src="src/android/AndroidTools.jar" target-dir="libs"/>
-	    <source-file src="src/android/rebound-0.3.8.jar" target-dir="libs"/>
+	    <source-file src="src/rebound-0.3.8.jar" target-dir="libs"/>
+        <source-file src="src/AndroidTools.java" target-dir="src/cordova/tools/miladesign" />
+        <source-file src="src/toast/DefaultToastView.java" target-dir="src/cordova/tools/miladesign/toast" />
+        <source-file src="src/toast/ErrorToastView.java" target-dir="src/cordova/tools/miladesign/toast" />
+        <source-file src="src/toast/InfoToastView.java" target-dir="src/cordova/tools/miladesign/toast" />
+        <source-file src="src/toast/SuccessToastView.java" target-dir="src/cordova/tools/miladesign/toast" />
+        <source-file src="src/toast/TastyToast.java" target-dir="src/cordova/tools/miladesign/toast" />
+        <source-file src="src/toast/WarningToastView.java" target-dir="src/cordova/tools/miladesign/toast" />
+        <source-file src="src/toast/R.java" target-dir="src/cordova/tools/miladesign/toast" />
 		
 		<source-file src="res/drawable/background_toast.xml" target-dir="res/drawable"/>
 		<source-file src="res/drawable/default_toast.xml" target-dir="res/drawable"/>
