@@ -42,11 +42,11 @@
 * Show Dialog With 3 Button (Can Control Buttons Click Listener)
 * Show Input Dialog (Text/Number/Phone Number/Text Password/Multiline Text/Date)
 * Show Custom Toast (Default/Success/Error/Info/Warning)<br>
-(http://s8.picofile.com/file/8267521684/default.gif)<br>
-(http://s8.picofile.com/file/8267521984/success.gif)<br>
-(http://s8.picofile.com/file/8267522034/error.gif)<br>
-(http://s8.picofile.com/file/8267522142/info.gif)<br>
-(http://s9.picofile.com/file/8267522168/warning.gif)<br>
+[Default Custom Toast](http://s8.picofile.com/file/8267521684/default.gif)<br>
+[Success Custom Toast](http://s8.picofile.com/file/8267521984/success.gif)<br>
+[Error Custom Toast](http://s8.picofile.com/file/8267522034/error.gif)<br>
+[Info Custom Toast](http://s8.picofile.com/file/8267522142/info.gif)<br>
+[Warning Custom Toast](http://s9.picofile.com/file/8267522168/warning.gif)<br>
 
 ## Designer:
 * MilaDesign (Milad Mohammadi)
