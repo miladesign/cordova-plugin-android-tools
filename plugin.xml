@@ -38,7 +38,6 @@
         <source-file src="src/toast/SuccessToastView.java" target-dir="src/cordova/tools/miladesign/toast" />
         <source-file src="src/toast/TastyToast.java" target-dir="src/cordova/tools/miladesign/toast" />
         <source-file src="src/toast/WarningToastView.java" target-dir="src/cordova/tools/miladesign/toast" />
-        <source-file src="src/toast/R.java" target-dir="src/cordova/tools/miladesign/toast" />
 		
 		<source-file src="res/drawable/background_toast.xml" target-dir="res/drawable"/>
 		<source-file src="res/drawable/default_toast.xml" target-dir="res/drawable"/>
