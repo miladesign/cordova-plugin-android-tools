@@ -8,7 +8,7 @@
     <description>Cordova Android Tools plugin</description>
     <author>Milad Mohammadi Rezagah</author>		
     <license>MIT</license>
-    <keywords>cordova,plugin,android,tools,android-tools</keywords>
+    <keywords>cordova,plugin,android,tools,vinoos,android-tools</keywords>
     <repo>https://github.com/miladesign/cordova-plugin-android-tools</repo>
     <issue>https://github.com/miladesign/cordova-plugin-android-tools/issues</issue>
 	<engines>
