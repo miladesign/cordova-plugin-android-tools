@@ -5,8 +5,8 @@ import java.util.Calendar;
 import java.util.Locale;
 
 import org.apache.cordova.CallbackContext;
-import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaActivity;
+import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.PluginResult;
@@ -28,6 +28,8 @@ import android.net.Uri;
 import android.net.wifi.WifiManager;
 import android.os.Vibrator;
 import android.provider.Settings.Secure;
+import android.telephony.TelephonyManager;
+import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -36,13 +38,11 @@ import android.view.WindowManager.LayoutParams;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.telephony.TelephonyManager;
-import android.text.InputType;
 import cordova.tools.miladesign.toast.TastyToast;
 
 @SuppressWarnings("unused")
 public class AndroidTools extends CordovaPlugin {
-	private static final String TAG = "MilaDesign";
+	private static final String TAG = "AndroidTools";
 	private static CallbackContext callbackContextKeepCallback = null;
 	private static Activity mActivity = null;
 	public static CordovaInterface cordova = null;
@@ -52,8 +52,8 @@ public class AndroidTools extends CordovaPlugin {
 	@Override
 	public void initialize (CordovaInterface initCordova, CordovaWebView webView) {
 		 Log.e (TAG, "initialize");
-		  cordova = initCordova;
-		  super.initialize (cordova, webView);
+		 cordova = initCordova;
+		 super.initialize (cordova, webView);
 	}
 	
 	@Override
@@ -560,25 +560,31 @@ public class AndroidTools extends CordovaPlugin {
 		cordova.getActivity().runOnUiThread(new Runnable() {
 			@Override
 			public void run() {
-				AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
-				builder.setTitle(title);
-				builder.setMessage(text);
-				builder.setCancelable(true);
-				builder.setNegativeButton(btnNo, new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int id) {
-						dialog.cancel();
-					}
-				});
-				builder.setPositiveButton(btnYes, new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int id) {
-						mActivity.finish();
-						System.exit(0);
-					}
-				});
-				AlertDialog alert = builder.create();
-				alert.show();
-				callbackContextKeepCallback = callbackContext;
-				callbackContextKeepCallback.success();
+				try {
+					Log.e(TAG, "ITS OK!");
+					AlertDialog.Builder builder = new AlertDialog.Builder(mActivity);
+					builder.setTitle(title);
+					builder.setMessage(text);
+					builder.setCancelable(true);
+					builder.setNegativeButton(btnNo, new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int id) {
+							dialog.cancel();
+						}
+					});
+					builder.setPositiveButton(btnYes, new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int id) {
+							mActivity.finish();
+							System.exit(0);
+						}
+					});
+					AlertDialog alert = builder.create();
+					alert.show();
+					callbackContextKeepCallback = callbackContext;
+					callbackContextKeepCallback.success();
+				} catch(Exception e) {
+					Log.e(TAG, "HERE");
+					Log.e(TAG, e.getMessage());
+				}
 			}
 		});
 	}
@@ -883,7 +889,7 @@ public class AndroidTools extends CordovaPlugin {
 			public void run() {
 				try {
 					Intent intent = new Intent("android.intent.action.VIEW");
-					intent.setData(Uri.parse("parshub://comment?q=" + packageName));
+					intent.setData(Uri.parse("jhoobin://comment?q=" + packageName));
 				    ((CordovaActivity) mActivity).startActivity(intent);
 					callbackContextKeepCallback = callbackContext;
 					callbackContextKeepCallback.success();
@@ -903,7 +909,7 @@ public class AndroidTools extends CordovaPlugin {
 			public void run() {
 				try {
 					Intent intent = new Intent("android.intent.action.VIEW");
-					intent.setData(Uri.parse("parshub://search?q=" + packageName));
+					intent.setData(Uri.parse("jhoobin://search?q=" + packageName));
 				    ((CordovaActivity) mActivity).startActivity(intent);
 					callbackContextKeepCallback = callbackContext;
 					callbackContextKeepCallback.success();
@@ -923,7 +929,7 @@ public class AndroidTools extends CordovaPlugin {
 			public void run() {
 				try {
 					Intent intent = new Intent("android.intent.action.VIEW");
-					intent.setData(Uri.parse("parshub://collection?type=APP&id=" + UserName));
+					intent.setData(Uri.parse("jhoobin://collection?type=APP&id=" + UserName));
 				    ((CordovaActivity) mActivity).startActivity(intent);
 					callbackContextKeepCallback = callbackContext;
 					callbackContextKeepCallback.success();
