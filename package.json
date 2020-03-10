@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-android-tools",
-  "version": "1.6.2",
+  "version": "1.6.4",
   "description": "Cordova Android Tools Plugin",
   "cordova": {
     "id": "cordova-plugin-android-tools",

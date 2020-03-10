@@ -384,13 +384,13 @@ module.exports = {
 	},
 	
 	// OpenWhatsapp
-	OpenWhatsapp: function(number) {
+	OpenWhatsapp: function(number, message) {
 		cordova.exec(
 			null,
 			null,
 			'AndroidTools',
 			'openWhatsapp',			
-			[number]
+			[number, message]
 		); 
 	},
 	
@@ -428,6 +428,17 @@ module.exports = {
 			'AndroidTools',
 			'inputDialog',			
 			[title,message,btnOK,btnCancel,hint,type,format]
+		); 
+	},
+	
+	// Copy To Clipboard
+	CopyToClipboard: function(message) {
+		cordova.exec(
+			null, 
+			null,
+			'AndroidTools',
+			'copyToClipboard',			
+			[message]
 		); 
 	},
 	onVibrateSupported: null,

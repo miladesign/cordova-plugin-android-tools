@@ -17,6 +17,8 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -238,6 +240,10 @@ public class AndroidTools extends CordovaPlugin {
 	    }
 		if ("inputDialog".equals(action)) {
 			return inputDialog(args, callbackContext);
+	    }
+		if ("copyToClipboard".equals(action)) {
+			copyToClipboard(args, callbackContext);
+			return true;
 	    }
 		return false;
 	}
@@ -1127,6 +1133,28 @@ public class AndroidTools extends CordovaPlugin {
 				} catch(Exception e) {
 					Toast.makeText(mActivity, "مرورگر بر روی دستگاه یافت نشد", Toast.LENGTH_LONG).show();
 				}
+			}
+		});
+	}
+	
+	/******* Copy to clipboard *******/
+	@SuppressWarnings("deprecation")
+	private void copyToClipboard(JSONArray args, final CallbackContext callbackContext) throws JSONException {
+		mActivity = cordova.getActivity();
+		callbackContextKeepCallback = callbackContext;
+		final String text = args.getString(0);
+		mActivity.runOnUiThread(new Runnable() {
+			@Override
+			public void run() {
+				if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.HONEYCOMB) {
+					android.text.ClipboardManager clipboard = (android.text.ClipboardManager) mActivity.getSystemService(Context.CLIPBOARD_SERVICE);
+				    clipboard.setText(text);
+				} else {
+				    android.content.ClipboardManager clipboard = (android.content.ClipboardManager) mActivity.getSystemService(Context.CLIPBOARD_SERVICE);
+				    android.content.ClipData clip = android.content.ClipData.newPlainText("Copied Text", text);
+				    clipboard.setPrimaryClip(clip);
+				}
+				callbackContextKeepCallback.success();
 			}
 		});
 	}
