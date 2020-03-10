@@ -1,4 +1,4 @@
-# Android Tools Cordova Plugin v1.6
+# Android Tools Cordova Plugin v1.6.4
 [android] [cordova cli] [xdk] [cocoon] [phonegap build service]
 
 ## Tools List:
@@ -31,9 +31,10 @@
 * Parshub Developer Apps
 * Open Telegram Channel/Profile
 * Open Instagram Page
-* Open Whatsapp Chat With Phone Number
+* Open Whatsapp Chat With Phone Number And Text
 * Open App With Package Name
 * Open Url
+* Copy Text To Clipboard
 * Set Screen Brightness
 * Set Screen Orientation (Landscape/Protratit/Reverse Landscape)
 * Set Device Volume (Voice Call/System/Ring/Music/Notification/Alarm)
